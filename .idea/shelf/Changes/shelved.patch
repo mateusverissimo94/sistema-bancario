@@ -1,0 +1,174 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1724460102229)
++++ b/.idea/vcs.xml	(date 1724460102229)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1724460084569)
++++ b/.idea/.gitignore	(date 1724460084569)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/SistemaBancario.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/SistemaBancario.iml b/.idea/SistemaBancario.iml
+new file mode 100644
+--- /dev/null	(date 1724460101656)
++++ b/.idea/SistemaBancario.iml	(date 1724460101656)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: desafio.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/desafio.py b/desafio.py
+new file mode 100644
+--- /dev/null	(date 1724520634966)
++++ b/desafio.py	(date 1724520634966)
+@@ -0,0 +1,60 @@
++menu = """
++    [d] Depositar
++    [s] Sacar
++    [e] Extrato
++    [q] Sair
++"""
++
++saldo = 0
++limite = 500
++extrato = ""
++numero_saques = 0
++LIMITE_SAQUES = 3
++
++while True:
++
++    opcao = input(menu)
++
++    if opcao == "d":
++        valor = float(input("Informe o valor do depósito: "))
++        if valor > 0:
++            saldo += valor
++            extrato += f"Depósito: R$ {valor:.2f}\n"
++        else:
++            print("Digite um valor positivo.")
++
++    elif opcao == "s":
++        valor = float(input("Informe o valor de saque: "))
++
++        excedeu_saldo = valor > saldo
++        excedeu_limite = valor > limite
++        excedeu_saques = numero_saques >= LIMITE_SAQUES
++
++        if excedeu_saldo:
++            print("Operação falhou! Você não tem saldo suficiente.")
++
++        elif excedeu_limite:
++            print("Operação falhou! O valor do saque excede o limite.")
++
++        elif excedeu_saques:
++            print("Operação falhou! Número máximo de saques excedido.")
++
++        elif valor > 0:
++            saldo -= valor
++            extrato += f"Saque: R$ {valor:.2f}\n"
++            numero_saques += 1
++
++        else:
++            print("Operação falhou! O valor informado é inválido.")
++
++    elif opcao == "e":
++        print("\n================ EXTRATO ================")
++        print("Não foram realizadas movimentações." if not extrato else extrato)
++        print(f"\nSaldo: R$ {saldo:.2f}")
++        print("==========================================")
++
++    elif opcao == "q":
++        break
++
++    else:
++        print("Operação inválida, por favor selecione novamente a opração desejada.")
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1724460102186)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1724460102186)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1724460191694)
++++ b/.idea/misc.xml	(date 1724460191694)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Black">
++    <option name="sdkName" value="C:\Users\Lenovo\anaconda3" />
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="C:\Users\Lenovo\anaconda3" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1724460101672)
++++ b/.idea/modules.xml	(date 1724460101672)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/SistemaBancario.iml" filepath="$PROJECT_DIR$/.idea/SistemaBancario.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
